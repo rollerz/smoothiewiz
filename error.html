@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" type="text/css" rel="stylesheet" />
+    <title>{{error}}</title>
+</head>
+<!-- TODO: Add error calls to main.py where applicable -->
+<body>
+    {% include 'header.html' %}
+    {% if error %}
+        {% if error == "notLogged" %}
+            <h2 class="warning">{{ curIng.ingName }} has not been added to your list!</h2>
+            <h4>You must login before you may add to your ingredient list.</h4>
+        {% endif %}
+        {% if error == "typeError" %}
+            <h2 class="warning">Type Mismatch!</h2>
+            <h4>You must have entered something wrong!</h4>
+        {% endif %}
+    {% else %}
+        <h2 class="warning">Either you messed up, or this page doesn't have an error!</h2>
+    {% endif %}
+    {% include 'footer.html' %}
+</body>
+
+</html>

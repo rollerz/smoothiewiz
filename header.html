@@ -1,0 +1,40 @@
+<div id="boxy">
+<a href="/"><img src="../img/logorbg.png" id="logo"/></a>
+<div id="container">
+    <h5 class="noPad warning" id="ver">
+        Beta 1.0
+    </h5>
+    <div id="userInfo">
+        {% if curUser %}
+            <h4><a href="/user/{{curUser}}">{{ curUser }}</a></h4>
+            <h6>Not {{ curUser }}? <a href="/logout">Sign out!</a></h6>
+        {% else %}
+            <form action="/login" method="post">
+                <label for="loginUser" class="boxLabel"> User Name:</label>
+                <input type="text" name="loginUser" id="loginUser" required/>
+                <br>
+                <label for="loginPass" class="boxLabel"> Password:</label>
+                <input type="password" name="loginPass" id="loginPass" required/>
+                <br>
+                <input type="submit" value="Login">
+            </form>
+            <h6>Need an account? <a href="/reg">Register!</a></h6>
+        {% endif %}
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- This is the actual header for webpage -->
+<nav>
+    <a href="/newIng" class="navLink rainbow">New Ingredient</a>
+    <a href="/ingList" class="navLink rainbow">Ingredients</a>
+    <a href="/newRec" class="navLink rainbow">New Recipe</a>
+    <a href="/recList" class="navLink rainbow">Recipes</a>
+</nav>
+<br>

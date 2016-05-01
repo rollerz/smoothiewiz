@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" type="text/css" rel="stylesheet" />
+    <title>New Recipe</title>
+</head>
+
+<body>
+    <!-- Get Recipes -->
+    {% include 'header.html' %}
+    {% if curUser %}
+    {% if succ == "rAdd" %}
+        <span class="success">{{recipe.rName}} has been added! Add more ingredients <a href="/rec/{{recipe.key.id()}}"> here!</a></span>
+    {% endif %}
+    {% if error == "dupRec" %}
+        <span class="warning">{{recipe}} has not been added!</span>
+        <span>Recipe already exists!</span>
+    {% endif %}
+    <form action="/newRec" method="post">
+        <fieldset>
+            <legend>
+                <h1>New Recipe</h1>
+            </legend>
+            <label for="rName">Recipe Name: </label>
+            <input type="text" id="rName" name="rName" placeholder="Recipe Name" required>
+            <br>
+            <select id="rIng" name="rIng">
+                {% for i in ingList|sort(attribute="ingName") %}
+                    <option value="{{i.ingName}}">{{i.ingName}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+    {% else %}
+        <h2 class="warning">Please login before creating recipes!</h2>
+    {% endif %}
+    {% include 'footer.html' %}
+</body>
+
+</html>

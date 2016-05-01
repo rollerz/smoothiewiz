@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" type="text/css" rel="stylesheet" />
+    <title>SmoothieWiz</title>
+    <style>
+        body {
+            border-radius: 2em 2em 0em 0em;
+            padding: 0.5em;
+            padding-bottom: 15em;
+        }
+        #footer {
+            position: relative;
+            top: 15em;
+            left: -18em;
+            padding-top: 1.7em;
+        }
+
+    </style>
+</head>
+
+<body>
+    {% include 'header.html' %}
+    {% if succ == "login" %}
+        <h2 clas="success">{{ user.uName }} has been logged in!</h2>
+    {% endif %}
+    {% if error == "passFail" %}
+        <h2 class="warning">{{ user }} has not been logged in!</h2>
+        <h4>Wrong password!</h4>
+    {% endif %}
+    <div id="container">
+        <img src="img/smoothie.png" id="smoothie" class="left">
+        <p class="right" id="indexPara">
+            {% if curUser %}
+                Welcome to SmoothieWiz! You may now add to your list of ingredients on hand!
+            {% else %}
+                Welcome to SmoothieWiz! To begin, first <a href="/reg">register</a> an account or login at the top!
+            {% endif %}
+        </p>
+    </div>
+    <br><br><br>
+    <div id="footer">
+        {% include 'footer.html' %}
+    </div>
+</body>
+
+</html>
