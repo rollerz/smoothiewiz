@@ -20,7 +20,7 @@ import webapp2
 import urllib
 import premade  # my premade ingredients file
 import models  # my ndb.models
-# NOTE: work on code efficiency
+# TODO: work on code efficiency
 from google.appengine.ext import ndb
 
 Ing = models.Ing
