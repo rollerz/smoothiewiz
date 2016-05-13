@@ -6,7 +6,7 @@ Rec = models.Recipe
 
 #      ING LIST      #
 # ------------------ #
-# IDEA: have the option to permanently save ingredients to premade.py. XML? JSON?
+# IDEA: have the option to permanently save ingredients to premade.py. JSON
 # Other / Liquids
 # ------------------
 water = Ing(ingName="Water", ingType="other",
