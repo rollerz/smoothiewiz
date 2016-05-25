@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" type="text/css" rel="stylesheet" />
+    <title>{{ user.uName }}</title>
+</head>
+
+<body>
+    {% include 'header.html' %}
+    <h1>{{ user.uName }}</h1>
+    {% if succ == "uReg"%}
+        <h2 class="success">New user {{user.uName}} has been created!</h2>
+        <h4>This is your user page, which you can access at any time via the box in the header!</h4>
+    {% endif %}
+    <h3>Your Ingredients: </h3>
+    {% if user.favIngs|length == 0 %}
+         You have no ingredients on hand currently!
+         Go to an ingredient's page to add one!
+    {% else %}
+        {% for i in user.favIngs %}
+            <a href="/ing/{{i.ingName}}">{{ i.ingName }}</a> &nbsp;
+        {% endfor %}
+        {% if canMake %}
+            <br><h3>Recipes with one or more of those ingredients:</h3>
+            {% for r in canMake %}
+                <a href="/rec/{{r.key.id()}}">{{ r.rName }}</a> <br>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    {% if error == "favDup" %}
+        <h4 class="warning">{{curIng.ingName}} is already in your ingredients list!</h4>
+    {% endif %}
+    {% if succ %}
+        {% if succ == "favAdd" %}
+            <h4 class="success">{{curIng.ingName}} has been added to your ingredients list!</h4>
+        {% endif %}
+        {% if succ == "unFav" %}
+            <h4 class="success">{{curIng.ingName}} has been removed from your ingredients list!</h4>
+        {% endif %}
+    {% endif %}
+    {% include 'footer.html' %}
+</body>
+
+</html>
