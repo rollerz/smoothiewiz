@@ -34,6 +34,8 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 # end of imports
 
+# TODO: Add pgTitle variable to each template_values
+
 
 class IngList(webapp2.RequestHandler):
 
@@ -44,7 +46,7 @@ class IngList(webapp2.RequestHandler):
             'size': len(ingList),
             'curUser': self.request.cookies.get('uName')
         }
-        template = JINJA_ENVIRONMENT.get_template('ings.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/ings-temp.html')
         self.response.write(template.render(template_values))
 
 
@@ -56,7 +58,7 @@ class RecipeList(webapp2.RequestHandler):
             'rList': recipeList,
             'curUser': self.request.cookies.get('uName')
         }
-        template = JINJA_ENVIRONMENT.get_template('recs.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/recs-temp.html')
         self.response.write(template.render(template_values))
 
 
@@ -79,7 +81,7 @@ class IngredientHandler(webapp2.RequestHandler):
             'curIng': Ing.query(Ing.ingName == para).fetch()[0],
             'check': favCheck
         }
-        template = JINJA_ENVIRONMENT.get_template('ing.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/ing-temp.html')
         self.response.write(template.render(template_values))
 
     def post(self, para):  # to favorite items
@@ -95,7 +97,7 @@ class IngredientHandler(webapp2.RequestHandler):
                 'curIng': Ing.query(Ing.ingName == para).fetch()[0],
                 'error': 'notLogged'
             }
-            template = JINJA_ENVIRONMENT.get_template('error.html')
+            template = JINJA_ENVIRONMENT.get_template('temp/error-temp.html')
             self.response.write(template.render(template_values))
             self.redirect('/')
 
@@ -113,7 +115,7 @@ class IngredientHandler(webapp2.RequestHandler):
                     'curIng': Ing.query(Ing.ingName == para).fetch()[0],
                     'error': 'favDup'
                 }
-                template = JINJA_ENVIRONMENT.get_template('user.html')
+                template = JINJA_ENVIRONMENT.get_template('temp/user-temp.html')
                 self.response.write(template.render(template_values))
 
             elif curUser.favIngs is None:
@@ -125,7 +127,7 @@ class IngredientHandler(webapp2.RequestHandler):
                     'curIng': Ing.query(Ing.ingName == para).fetch()[0],
                     'succ': 'favAdd'
                 }
-                template = JINJA_ENVIRONMENT.get_template('user.html')
+                template = JINJA_ENVIRONMENT.get_template('temp/user-temp.html')
                 self.response.write(template.render(template_values))
 
             else:
@@ -137,7 +139,7 @@ class IngredientHandler(webapp2.RequestHandler):
                     'curIng': Ing.query(Ing.ingName == para).fetch()[0],
                     'succ': 'favAdd'
                 }
-                template = JINJA_ENVIRONMENT.get_template('user.html')
+                template = JINJA_ENVIRONMENT.get_template('temp/user-temp.html')
                 self.response.write(template.render(template_values))
 
 
@@ -162,7 +164,7 @@ class UnFavorite(webapp2.RequestHandler):
             'succ': 'unFav'
         }
 
-        template = JINJA_ENVIRONMENT.get_template('user.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/user-temp.html')
         self.response.write(template.render(template_values))
 
 
@@ -274,7 +276,7 @@ class RecipeHandler(webapp2.RequestHandler):
             'sugars': recSugars,
             'protein': recProtein
         }
-        template = JINJA_ENVIRONMENT.get_template('rec.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/rec-temp.html')
         self.response.write(template.render(template_values))
 
 
@@ -284,7 +286,7 @@ class NewIng(webapp2.RequestHandler):
         template_values = {
             'curUser': self.request.cookies.get('uName')
         }
-        template = JINJA_ENVIRONMENT.get_template('newIng.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/newing-temp.html')
         self.response.write(template.render(template_values))
 
     def post(self):
@@ -395,7 +397,7 @@ class NewIng(webapp2.RequestHandler):
                 'error': 'typeError',
                 'curUser': self.request.cookies.get('uName')
             }
-            template = JINJA_ENVIRONMENT.get_template('error.html')
+            template = JINJA_ENVIRONMENT.get_template('temp/error-temp.html')
             self.response.write(template.render(template_values))
         else:
             newIng = Ing(calories=calories, vitA=vitA, vitB6=vitB6, vitC=vitC, vitD=vitD, vitB12=vitB12,
@@ -411,7 +413,7 @@ class NewIng(webapp2.RequestHandler):
                     'curUser': self.request.cookies.get('uName'),
                     'error': 'ingDup'
                 }
-                template = JINJA_ENVIRONMENT.get_template('newIng.html')
+                template = JINJA_ENVIRONMENT.get_template('temp/newing-temp.html')
                 self.response.write(template.render(template_values))
             else:
                 newIng.put()
@@ -420,7 +422,7 @@ class NewIng(webapp2.RequestHandler):
                     'curIng': newIng,
                     'succ': 'ingAdd'
                 }
-                template = JINJA_ENVIRONMENT.get_template('ings.html')
+                template = JINJA_ENVIRONMENT.get_template('temp/ings-temp.html')
                 self.response.write(template.render(template_values))
 
 
@@ -431,7 +433,7 @@ class NewRecipe(webapp2.RequestHandler):
             'curUser': self.request.cookies.get('uName'),
             'ingList': Ing.query().fetch()
         }
-        template = JINJA_ENVIRONMENT.get_template('newRec.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/newrec-temp.html')
         self.response.write(template.render(template_values))
 
     def post(self):
@@ -449,7 +451,7 @@ class NewRecipe(webapp2.RequestHandler):
                 'ingList': Ing.query().fetch(),
                 'succ': 'rAdd'
             }
-            template = JINJA_ENVIRONMENT.get_template('newRec.html')
+            template = JINJA_ENVIRONMENT.get_template('temp/newrec-temp.html')
             self.response.write(template.render(template_values))
         else:
             template_values = {
@@ -458,7 +460,7 @@ class NewRecipe(webapp2.RequestHandler):
                 'ingList': Ing.query().fetch(),
                 'error': 'dupRec'
             }
-            template = JINJA_ENVIRONMENT.get_template('newRec.html')
+            template = JINJA_ENVIRONMENT.get_template('temp/newrec-temp.html')
             self.response.write(template.render(template_values))
 
 
@@ -486,7 +488,7 @@ class UpdateRecipe(webapp2.RequestHandler):
             'curIng': curIng,
             'succ': 'ingDel'
         }
-        template = JINJA_ENVIRONMENT.get_template('rec.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/rec-temp.html')
         self.response.write(template.render(template_values))
 
     def post(self, para):
@@ -504,7 +506,7 @@ class UpdateRecipe(webapp2.RequestHandler):
             'curIng': curIng,
             'succ': 'ingAdd'
         }
-        template = JINJA_ENVIRONMENT.get_template('rec.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/rec-temp.html')
         self.response.write(template.render(template_values))
 
 
@@ -514,7 +516,7 @@ class Register(webapp2.RequestHandler):
         template_values = {
             'curUser': self.request.cookies.get('uName')
         }
-        template = JINJA_ENVIRONMENT.get_template('register.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/register-temp.html')
         self.response.write(template.render(template_values))
 
     def post(self):
@@ -525,27 +527,14 @@ class Register(webapp2.RequestHandler):
         userList = User.query().fetch()
         userCheck = True
 
-        # TODO: hash all passwords from hashlib
-        # XXX This is all just a Test XXX
-        # salt = os.urandom(16)
-        # m = hashlib.md5()
-        # m.update(salt + password)
-        # m.hexdigest()
-        #
-        # masterSecret = getpass(raw_password)
-        # salt = bcrypt.gensalt()
-        #
-        # comboPassword = raw_password + salt + masterSecret
-        # hashed_password = bcrypt.hashpw(comboPassword, salt)
-        # XXX This is all just a Test XXX
-
+        # XXX: Move validation to the front end for this
         if len(raw_password) <= 7 and raw_password != confirm:
             template_values = {
                 'error': 'dubFail',
                 'user': uName
             }
 
-            template = JINJA_ENVIRONMENT.get_template('register.html')
+            template = JINJA_ENVIRONMENT.get_template('temp/register-temp.html')
             self.response.write(template.render(template_values))
 
         elif raw_password != confirm or len(raw_password) <= 7:
@@ -561,7 +550,7 @@ class Register(webapp2.RequestHandler):
                     'user': uName
                 }
 
-            template = JINJA_ENVIRONMENT.get_template('register.html')
+            template = JINJA_ENVIRONMENT.get_template('temp/register-temp.html')
             self.response.write(template.render(template_values))
 
         else:  # if passwords match, then if user already exists
@@ -579,7 +568,7 @@ class Register(webapp2.RequestHandler):
                     'succ': 'uReg'
                 }
 
-                template = JINJA_ENVIRONMENT.get_template('user.html')
+                template = JINJA_ENVIRONMENT.get_template('temp/user-temp.html')
                 self.response.write(template.render(template_values))
             else:
                 template_values = {
@@ -587,11 +576,14 @@ class Register(webapp2.RequestHandler):
                     'user': uName
                 }
 
-                template = JINJA_ENVIRONMENT.get_template('register.html')
+                template = JINJA_ENVIRONMENT.get_template('temp/register-temp.html')
                 self.response.write(template.render(template_values))
 
 
 class Login(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('temp/login-temp.html')
+        self.response.write(template.render())
 
     def post(self):
         uName = self.request.get('loginUser')
@@ -612,7 +604,7 @@ class Login(webapp2.RequestHandler):
                     'error': 'uNotFound'
                 }
 
-            template = JINJA_ENVIRONMENT.get_template('register.html')
+            template = JINJA_ENVIRONMENT.get_template('temp/register-temp.html')
             self.response.write(template.render(template_values))
         else:
             if curUser and curUser.password == password:  # success
@@ -644,7 +636,7 @@ class LogOut(webapp2.RequestHandler):
         }
 
         self.response.delete_cookie('uName')
-        template = JINJA_ENVIRONMENT.get_template('logout.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/logout-temp.html')
         self.response.write(template.render(template_values))
 
 
@@ -671,7 +663,7 @@ class UserInfo(webapp2.RequestHandler):
             'curUser': self.request.cookies.get('uName'),
             'canMake': canMake
         }
-        template = JINJA_ENVIRONMENT.get_template('user.html')
+        template = JINJA_ENVIRONMENT.get_template('temp/user-temp.html')
         self.response.write(template.render(template_values))
 
 

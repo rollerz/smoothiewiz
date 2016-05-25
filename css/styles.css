@@ -1,0 +1,53 @@
+html {
+    width: 47em;
+    height: 100%;
+    margin: 0 auto;
+    background-color: lightgreen;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: honeydew;
+    border-radius: 2em 2em 0em 0em;
+    padding: 0.5em;
+}
+nav {
+    font-size: 1.5em;
+    width: 100%;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: limegreen;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    -o-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}
+a:active {
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    -o-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}
+.left {
+    float: left;
+    width: 45%;
+}
+.right {
+    float: right;
+    width: 45%;
+}
+
+/*Rainbow Hover*/
+
+.rainbow:hover {
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    -o-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}

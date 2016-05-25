@@ -1,6 +1,304 @@
 body {
     padding-top: 40px;
-    background-color: ghostwhite;
+    background-color: lightgreen;
+}
+p {
+    font-size: 16px;
+}
+fieldset.listborder {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+legend.listborder {
+    width:auto;
+    padding:0 10px;
+    border-bottom:none;
+}
+#smoothie {
+    width: 25em;
+    margin-left: 1em;
+}
+#ver {
+    float: left;
+    background-color: gold;
+    padding: 0.5em;
+    margin-top: 0.8em;
+}
+#ingBox {
+    background-color: white;
+    width: 11em;
+    float: left;
+    text-align: right;
+    border: 3px solid black;
+    margin-left: 3.5em;
+}
+#photo {
+    float: right;
+}
+#need {
+    margin-bottom: 1em;
+}
+#footer {
+    position: relative;
+    top: 15em;
+    left: -11.3em;
+    padding-top: 1.7em;
+}
+#smoothieFacts {
+    width: 14em;
+    background-color: white;
+    border: 3px solid black;
+    margin-right: 3em;
+    text-align: right;
+}
+
+#smoothieFacts h2, h6{
+    text-align: center;
+}
+.moreDesc {
+    font-size: 11px;
+}
+.navbar {
+    /*background-color: transparent;
+    background: transparent;
+    border-color: transparent;*/
+    background: slategray;
+    border-color: green;
+}
+.navbar-text > a {
+    text-decoration: none;
+    color: inherit;
+}
+.navbar li, .navbar li a, .navbar-text {
+    color: lightgreen !important;
+}
+.navbar li a:hover, .navbar li:hover {
+    -webkit-animation: rainbow 1s infinite !important;
+    -ms-animation: rainbow 1s infinite !important;
+    -o-animation: rainbow 1s infinite !important;
+    animation: rainbow 1s infinite !important;
+}
+.navbar-brand > img {
+    width: 10em;
+}
+.list {
+    text-align: center;
+    margin: 0 auto;
+}
+.content {
+    margin-top: 5em;
+}
+.ingImg {
+    width: 3em;
+}
+.ingPhoto {
+    width: 16em;
+}
+.cell {
+    width: 7em;
+    text-align: center;
+    margin: 0 auto;
+}
+.cell > a {
+    text-decoration: none;
+}
+.cell > a:hover {
+    text-decoration: none;
+}
+.myLegends {
+    text-align: center;
+    font-size: 2em;
+}
+.warning {
+    color: red;
+    font-family: 'Lucida Console';
+}
+.success {
+    color: darkgreen;
+    font-family: 'Lucida Console';
+}
+.link {
+    width: 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+.noPad {
+    padding: 0;
+    margin: 0;
+}
+.boxLabel {
+    font-weight: bold;
+}
+.factLabel {
+    font-weight: bold;
+}
+.nutLine {
+    border: 7px solid black;
+    width: 9em;
+}
+.part {
+    width: 12em;
+}
+.navLink {
+    border: 2px solid green;
+    padding: 6px;
+    border-radius: 2em;
+}
+.morepad {
+    padding-bottom: 90px;
+}
+.warning {
+    color: red;
+    font-family: 'Lucida Console';
+}
+.success {
+    color: darkgreen;
+    font-family: 'Lucida Console';
+}
+/*Rainbow Hover*/
+
+@-webkit-keyframes rainbow {
+    0% {
+        color: #ff0000;
+    }
+    10% {
+        color: #ff8000;
+    }
+    20% {
+        color: #ffff00;
+    }
+    30% {
+        color: #80ff00;
+    }
+    40% {
+        color: #00ff00;
+    }
+    50% {
+        color: #00ff80;
+    }
+    60% {
+        color: #00ffff;
+    }
+    70% {
+        color: #0080ff;
+    }
+    80% {
+        color: #0000ff;
+    }
+    90% {
+        color: #8000ff;
+    }
+    100% {
+        color: #ff0080;
+    }
+}
+@-ms-keyframes rainbow {
+    0% {
+        color: #ff0000;
+    }
+    10% {
+        color: #ff8000;
+    }
+    20% {
+        color: #ffff00;
+    }
+    30% {
+        color: #80ff00;
+    }
+    40% {
+        color: #00ff00;
+    }
+    50% {
+        color: #00ff80;
+    }
+    60% {
+        color: #00ffff;
+    }
+    70% {
+        color: #0080ff;
+    }
+    80% {
+        color: #0000ff;
+    }
+    90% {
+        color: #8000ff;
+    }
+    100% {
+        color: #ff0080;
+    }
+}
+@-o-keyframes rainbow {
+    0% {
+        color: #ff0000;
+    }
+    10% {
+        color: #ff8000;
+    }
+    20% {
+        color: #ffff00;
+    }
+    30% {
+        color: #80ff00;
+    }
+    40% {
+        color: #00ff00;
+    }
+    50% {
+        color: #00ff80;
+    }
+    60% {
+        color: #00ffff;
+    }
+    70% {
+        color: #0080ff;
+    }
+    80% {
+        color: #0000ff;
+    }
+    90% {
+        color: #8000ff;
+    }
+    100% {
+        color: #ff0080;
+    }
+}
+@keyframes rainbow {
+    0% {
+        color: #ff0000;
+    }
+    10% {
+        color: #ff8000;
+    }
+    20% {
+        color: #ffff00;
+    }
+    30% {
+        color: #80ff00;
+    }
+    40% {
+        color: #00ff00;
+    }
+    50% {
+        color: #00ff80;
+    }
+    60% {
+        color: #00ffff;
+    }
+    70% {
+        color: #0080ff;
+    }
+    80% {
+        color: #0000ff;
+    }
+    90% {
+        color: #8000ff;
+    }
+    100% {
+        color: #ff0080;
+    }
 }
 @media (min-width: 980px) {
     .dropdown:hover .dropdown-menu {
@@ -23,49 +321,4 @@ body {
         display: block;
         margin-top: 0;
     }
-}
-p {
-    font-size: 16px;
-}
-.moreDesc {
-    font-size: 11px;
-}
-.jumbotron {
-    margin-top: 3em;
-    color: white;
-    /*background: url(../images/codebg.png);*/
-    background-position: 0% 82.75%;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.jumbotron h1, .jumbotron h3 {
-    text-shadow: slategray 0.10em 0.10em 0.10em;
-}
-.navbar-text > a {
-    text-decoration: none;
-    color: inherit;
-}
-.navbar-text > a:hover {
-    text-decoration: none;
-    color: green;
-}
-.list li {
-    list-style-type: square;
-    margin-left: -25px;
-}
-.content {
-    margin-top: 5em;
-}
-#banner img {
-    width: 100%;
-}
-#aboutTitle {
-    font-size: 4em;
-}
-#portContainer {
-    text-align: center;
-}
-#portrait {
-    width: 23em;
-    padding-top: 1.5em;
 }
