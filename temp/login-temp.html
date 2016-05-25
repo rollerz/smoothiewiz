@@ -1,0 +1,18 @@
+{% include 'temp/head.html' %}
+    {% include 'temp/header-temp.html' %}
+        <div class="container content">
+            <!-- TODO: Test to see if they are logged in already somehow -->
+            <h1 class="col-md-offset-4">Login</h1>
+            <form class="col-md-offset-4" id="log" action="/login" method="post">
+                <label for="loginUser" class="boxLabel"> Username:</label>
+                    <input type="text" id="loginUser" name="loginUser"/><br>
+                <label for="loginPass" class="boxLabel"> Password:</label>
+                    <input type="password" id="loginPass" name="loginPass"/><br>
+                <input type="submit" value="Login">
+                {% if error == 'passFail' %}
+                    <span class="warning">Incorrect password for {{userFail}}!</span>
+                {% endif %}
+            </form>
+        </div>
+    {% include 'temp/footer-temp.html' %}
+{% include 'temp/end.html' %}

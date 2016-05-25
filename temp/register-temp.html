@@ -1,0 +1,43 @@
+{% include 'temp/head.html' %}
+    {% include 'temp/header-temp.html' %}
+        <div class="container content">
+            {% if error == "lenFail" %}
+                <h2 class="warning">User not created!</h2>
+                <h4>Passwords must be at least 8 characters!</h4>
+            {% endif %}
+            {% if error == "confFail" %}
+                <h2 class="warning">User not created!</h2>
+                <h4>Passwords do not match!</h4>
+            {% endif %}
+            {% if error == "dubFail" %}
+                <h2 class="warning">User not created!</h2>
+                <h4>Passwords do not match! Passwords must also be at least 8 characters!</h4>
+            {% endif %}
+            {% if error == "uDup" %}
+                <h2 class="warning">{{ user }} has not been created!</h2>
+                <h4>User already exists!</h4>
+            {% endif %}
+            {% if error == "noUsers" %}
+                <h2 class="warning">No users found!</h2>
+                <h4>Please register for an account below.</h4>
+            {% endif %}
+            {% if error == "uNotFound" %}
+                <h2 class="warning">{{ user }} has not been logged in!</h2>
+                <h4>User not found! Please register for an account below.</h4>
+            {% endif %}
+            <h1 class="col-md-offset-4">Register</h1>
+            <form id="reg" class="col-md-offset-4" action="/reg" method="post" name="register">
+                <label for="user"> User Name:</label>
+                <input type="text" name="user" id="user" required/>
+                <br>
+                <label for="pass"> Password:</label>
+                <input type="password" name="pass" id="pass" required/>
+                <br>
+                <label for="conf"> Confirm Password:</label>
+                <input type="password" name="conf" id="conf" required/>
+                <br>
+                <input type="submit" />
+            </form>
+        </div>
+    {% include 'temp/footer-temp.html' %}
+{% include 'temp/end.html' %}

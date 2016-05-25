@@ -1,0 +1,31 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container full">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="img/logorbg.png" /></a>
+            <h5 class="noPad warning" id="ver">
+                Alpha 1.1
+            </h5>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {% if curUser %}
+                    <li><a href="/newIng">New Ingredient</a></li>
+                    <li><a href="/ingList">Ingredients</a></li>
+                    <li><a href="/newRec">New Recipe</a></li>
+                    <li><a href="/recList">Recipes</a></li>
+                    <li><a href="/user/{{curUser}}">{{curUser}}</a></li>
+                    <li><a href="/logout"><i class="fa fa-sign-out fa" aria-hidden="true"></i></a></li>
+                {% else %}
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/reg">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

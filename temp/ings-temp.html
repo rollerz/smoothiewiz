@@ -1,0 +1,71 @@
+{% include 'temp/head-broken.html' %}
+    {% include 'temp/header-broken.html' %}
+        <div class="container content morepad">
+            {% if succ == "ingAdd" %}
+                <h2 class="success">New ingredient {{curIng.ingName}} has been added!</h2>
+                <h4>View your ingredient <a href="/ing/{{curIng.ingName}}">here</a></h4>
+            {% endif %}
+            <h1>Total Ingredients: <span class="success">{{ size }}</span></h1>
+
+            <fieldset class="listborder">
+                <legend class="myLegends listborder">Fruits</legend>
+                <table class="list">
+                    <tr>
+                    {% for i in ingList|sort(attribute="ingName") %}
+                        {% if loop.index0 is divisibleby 16 %}
+                            </tr>
+                        {% endif %}
+                        {% if i.ingType == "fruit" %}
+                        <td class="cell">
+                            <a href="/ing/{{i.ingName}}">
+                                <img src="{{i.imgPath}}" class="ingImg">
+                                <br>{{ i.ingName }}</a>
+                        </td>
+                        {% endif %}
+                    {% endfor %}
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="listborder">
+                <legend class="myLegends listborder">Vegetables</legend>
+                <table class="list">
+                    <tr>
+                    {% for i in ingList|sort(attribute="ingName") %}
+                        {% if loop.index0 is divisibleby 16 %}
+                            </tr>
+                        {% endif %}
+                        {% if i.ingType == "veg" %}
+                            <td class="cell">
+                                <a href="/ing/{{i.ingName}}">
+                                    <img src="{{i.imgPath}}" class="ingImg">
+                                    <br />
+                                    {{ i.ingName }}
+                                </a>
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="listborder">
+                <legend class="myLegends listborder">Other</legend>
+                <table class="list">
+                    <tr>
+                    {% for i in ingList|sort(attribute="ingName") %}
+                        {% if loop.index0 is divisibleby 16 %}
+                            </tr>
+                        {% endif %}
+                        {% if i.ingType == "other" %}
+                            <td class="cell">
+                                <a href="/ing/{{i.ingName}}">
+                                    <img src="{{i.imgPath}}" class="ingImg">
+                                    <br>{{ i.ingName }}</a>
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    {% include 'temp/footer-temp.html' %}
+{% include 'temp/end.html' %}
