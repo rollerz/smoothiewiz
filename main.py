@@ -671,7 +671,8 @@ class MainHandler(webapp2.RequestHandler):
 
     def get(self):
         template_values = {
-            'curUser': self.request.cookies.get('uName')
+            'curUser': self.request.cookies.get('uName'),
+            'pgTitle': "SmoothieWiz"
         }
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.write(template.render(template_values))

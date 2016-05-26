@@ -1,4 +1,4 @@
-# smoothiewiz Alpha 0.2
+# smoothiewiz Alpha 1.2
 #### Deployed version can be viewed at http://smoothiewiz.appspot.com/
 
 This web application was created for a Fall 2015 course in server-side programming and development.

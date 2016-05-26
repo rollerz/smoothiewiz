@@ -30,13 +30,8 @@ legend.listborder {
 #ingBox {
     background-color: white;
     width: 11em;
-    float: left;
-    text-align: right;
     border: 3px solid black;
     margin-left: 3.5em;
-}
-#photo {
-    float: right;
 }
 #need {
     margin-bottom: 1em;
@@ -62,9 +57,6 @@ legend.listborder {
     font-size: 11px;
 }
 .navbar {
-    /*background-color: transparent;
-    background: transparent;
-    border-color: transparent;*/
     background: slategray;
     border-color: green;
 }
@@ -137,7 +129,8 @@ legend.listborder {
 }
 .nutLine {
     border: 7px solid black;
-    width: 9em;
+    width: 7em;
+    margin-right: 40px;
 }
 .part {
     width: 12em;
@@ -157,6 +150,9 @@ legend.listborder {
 .success {
     color: darkgreen;
     font-family: 'Lucida Console';
+}
+.mobile {
+    display: none;
 }
 /*Rainbow Hover*/
 
@@ -310,15 +306,22 @@ legend.listborder {
     body {
         padding-bottom: 90px;
     }
-    #portrait {
-        width: 22em;
-    }
-    #aboutDesc {
-        padding-top: 7px;
-        font-size: 16px;
-    }
     .dropdown: {
         display: block;
         margin-top: 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .nonmobile {
+        display: none;
+    }
+    .mobile {
+        display: inline;
+    }
+}
+@media (max-width: 360px) {
+    #ver {
+        display: none;
     }
 }
