@@ -1,0 +1,19 @@
+{% include 'temp/head-broken.html' %}
+    {% include 'temp/header-broken.html' %}
+        <div class="container content">
+            <h1>Recipes</h1>
+            {% if error %}
+                {% if error == "notLogged" %}
+                    <h2 class="warning">{{ curIng.ingName }} has not been added to your list!</h2>
+                    <h4>You must login before you may add to your ingredient list.</h4>
+                {% endif %}
+                {% if error == "typeError" %}
+                    <h2 class="warning">Type Mismatch!</h2>
+                    <h4>You must have entered something wrong!</h4>
+                {% endif %}
+            {% else %}
+                <h2 class="warning">Either you messed up, or this page doesn't have an error!</h2>
+            {% endif %}
+        </div>
+    {% include 'temp/footer-temp.html' %}
+{% include 'temp/end.html' %}
